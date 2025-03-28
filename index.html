@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0JKBJ3WRJZ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0JKBJ3WRJZ');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Video-to-Audio-and-Piano</title>
+
+    <link rel="icon" type="image/png" href="images/icon.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <body>
+        <br><br><br><br>
+        <div class="container">
+            <div class="row text-center" style="font-size:38px">
+                <div class="col strong">
+                    Enhance Generation Quality of Flow Matching V2A Model via Multi-Step <br>CoT-Like Guidance and Combined Preference Optimization
+					Towards Video to Piano Music Generation with Chain-of-Perform Support Benchmarks
+                </div>
+            </div>
+			
+            <br>
+            <br>
+    
+            <div class="h-100 row text-center justify-content-md-center" style="font-size:20px;">
+                <div class="col-sm-2">
+                    <a href="https://arxiv.org">[Paper]</a>
+                </div>
+                <div class="col-sm-2">
+                    <a href="https://github.com/acappemin/Video-to-Audio-and-Piano">[Code]</a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="https://huggingface.co/spaces">[Huggingface Demo]</a>
+                </div>
+				<div class="col-sm-2">
+                    <a href="https://huggingface.co/lshzhm/Video-to-Audio-and-Piano/tree/main">[Models]</a>
+                </div>
+            </div>
+			
+			<br>
+            <br>
+			
+			<hr>
+			
+			<br>
+            <br>
+			
+			<div class="row" style="font-size:32px">
+                <div class="col strong">
+                    Abstract
+                </div>
+            </div>
+			
+			<br>
+            <br>
+			
+			Creating high-quality sound effects from videos and text prompts requires precise alignment between visual and audio domains, both semantically and temporally, along with step-by-step guidance for professional audio generation. However, current state-of-the-art video-guided audio generation models often fall short of producing high-quality audio for both general and specialized use cases. To address this challenge, we introduce a multi-stage, multi-modal, end-to-end generative framework with Chain-of-Thought-like (CoT-like) guidance learning, termed Chain-of-Perform (CoP). First, we employ a transformer-based network architecture designed to achieve CoP guidance, enabling the generation of both general and professional audio. Second, we implement a multi-stage training framework that follows step-by-step guidance to ensure the generation of high-quality sound effects. Third, we develop a CoP multi-modal dataset, guided by video, to support step-by-step sound effects generation. Evaluation results highlight the advantages of the proposed multi-stage CoP generative framework compared to the state-of-the-art models on a variety of datasets, with FAD 0.79 to 0.74 (+6.33%), CLIP 16.12 to 17.70 (+9.80%) on VGGSound, SI-SDR 1.98 dB to 3.35 dB (+69.19%), MOS 2.94 to 3.49 (+18.71%) on PianoYT-2h, and SI-SDR 2.22 dB to 3.21 dB (+44.59%), MOS 3.07 to 3.42 (+11.40%) on Piano-10h.
+			
+            <br>
+            <br>
+			
+            <hr>
+			
+			<br>
+            <br>
+			
+			<div class="row" style="font-size:32px">
+                <div class="col strong">
+                    Method
+                </div>
+            </div>
+			
+			<br>
+            <br>
+            
+			<img src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/images/multi-stage.png" alt="overview" style="width:100%;">
+			
+			<br>
+			
+			Figure 1: Multi-stage training pipeline of our method.
+			
+			<br>
+            <br>
+			
+			<img src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/images/dataset_200.png" alt="dataset" style="width:100%;">
+			
+			<br>
+			
+			Figure 2: Five views of the Piano-10h dataset supporting step-by-step generation tasks.
+			
+			<br>
+            <br>
+			
+			<hr>
+			
+			<br>
+            <br>
+			
+            <div class="row" style="font-size:32px">
+                <div class="col strong">
+                    Demos
+                </div>
+            </div>
+			
+            <br>
+			<br>
+			
+			<div class="row" style="font-size:32px">
+                <div class="col strong">
+                    Video-to-Audio
+                </div>
+            </div>
+			
+			<br>
+			<br>
+			
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__1u1orBeV4xI_000428.v2a.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__1uCzQCdCC1U_000170.v2a.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__1vy-ZxTMQf4_000377.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__7EgbS-lbHWY_000005.v2a.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__bKlj1LbM6wI_000120.v2a.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__bLT5nbwpVOw_000000.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__j1kM-hC44Ok_000002.v2a.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__j-wEtmNLMgM_000062.v2a.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__mHRF_-IOT2s_000440.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__mJOGqViXauo_000100.v2a.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__mKEJRZtNx9o_000044.v2a.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/__ailab-train__speech__zhanghaomin__VGGSound__video__Z7yFCSsIm8w_000070.v2a.mp4">
+				</video>
+			</div>
+
+			<br>
+			<br>
+			
+			<div class="row" style="font-size:32px">
+                <div class="col strong">
+                    Video-to-Piano
+                </div>
+            </div>
+			
+			<br>
+			<br>
+
+			<div style="padding: 0 0; text-align: center; display: flex; justify-content: space-around;">
+				<p style="text-align: center;">Ground Truth</p>
+				<p style="text-align: center;">Generated Audios</p>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000000.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000000.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000001.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000001.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000002.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000002.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000003.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000003.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000004.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000004.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000005.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000005.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000006.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000006.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000007.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000007.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000008.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000008.v2a.mp4">
+				</video>
+			</div>
+			<div class="row">
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000009.mp4">
+				</video>
+				<video style="width: 49%;" controls>
+					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000009.v2a.mp4">
+				</video>
+			</div>
+			
+            <br><br>
+            <br><br>
+    
+        </div>
+
+</body>
+</html>
