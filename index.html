@@ -76,103 +76,6 @@
 			
 			Creating high-quality sound effects from videos and text prompts requires precise alignment between visual and audio domains, both semantically and temporally, along with step-by-step guidance for professional audio generation. However, current state-of-the-art video-guided audio generation models often fall short of producing high-quality audio for both general and specialized use cases. To address this challenge, we introduce a multi-stage, multi-modal, end-to-end generative framework with Chain-of-Thought-like (CoT-like) guidance learning, termed Chain-of-Perform (CoP). First, we employ a transformer-based network architecture designed to achieve CoP guidance, enabling the generation of both general and professional audio. Second, we implement a multi-stage training framework that follows step-by-step guidance to ensure the generation of high-quality sound effects. Third, we develop a CoP multi-modal dataset, guided by video, to support step-by-step sound effects generation. Evaluation results highlight the advantages of the proposed multi-stage CoP generative framework compared to the state-of-the-art models on a variety of datasets, with FAD 0.79 to 0.74 (+6.33%), CLIP 16.12 to 17.70 (+9.80%) on VGGSound, SI-SDR 1.98 dB to 3.35 dB (+69.19%), MOS 2.94 to 3.49 (+18.71%) on PianoYT-2h, and SI-SDR 2.22 dB to 3.21 dB (+44.59%), MOS 3.07 to 3.42 (+11.40%) on Piano-10h.
 			
-            <br>
-            <br>
-			
-            <hr>
-			
-			<br>
-            <br>
-			
-			<div class="row" style="font-size:32px">
-                <div class="col strong">
-                    Method
-                </div>
-            </div>
-			
-			<br>
-            <br>
-            
-			<img src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/images/multi-stage.png" alt="overview" style="width:100%;">
-			
-			<br>
-			
-			Figure 1: Multi-stage training pipeline of our method.
-			
-			<br>
-            <br>
-			
-			<img src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/images/dataset_200.png" alt="dataset" style="width:100%;">
-			
-			<br>
-			
-			Figure 2: Five views of the Piano-10h dataset supporting step-by-step generation tasks.
-			
-			<br>
-            <br>
-			
-			<hr>
-			
-			<br>
-            <br>
-			
-			<div class="row" style="font-size:32px">
-                <div class="col strong">
-                    Results
-                </div>
-            </div>
-			
-			<br>
-            <br>
-			
-			<table>
-				<thead>
-					<tr>
-						<th>Method</th> <th>Params</th> <th>FAD↓</th> <th>FD↓</th> <th>KL↓</th> <th>IS↑</th> <th>CLIP↑</th> <th>AV↑</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr><td>Diff-Foley</td> <td>859M</td> <td>6.05</td> <td>23.38</td> <td>3.18</td> <td>10.95</td> <td>9.40</td> <td>0.21</td></tr>
-					<tr><td>FoleyCrafter w/o text</td> <td>1.22B</td> <td>2.38</td> <td>26.70</td> <td>2.53</td> <td>9.66</td> <td>15.57</td> <td><b>0.25</b></td></tr>
-					<tr><td>FoleyCrafter w. text</td> <td>1.22B</td> <td>2.59</td> <td>20.88</td> <td>2.28</td> <td>13.60</td> <td>14.80</td> <td>0.24</td></tr>
-					<tr><td>V2A-Mapper</td> <td>229M</td> <td>0.82</td> <td>13.47</td> <td>2.67</td> <td>10.53</td> <td>15.33</td> <td>0.14</td></tr>
-					<tr><td>Frieren</td> <td>159M</td> <td>1.36</td> <td>12.48</td> <td>2.75</td> <td>12.34</td> <td>11.57</td> <td>0.21</td></tr>
-					<tr><td>MMAudio-S-16kHz</td> <td>157M</td> <td>0.79</td> <td>5.22</td> <td><b>1.65</b></td> <td>14.44</td> <td>-</td> <td>-</td></tr>
-					<tr><td>MMAudio-S-44.1kHz</td> <td>157M</td> <td>1.66</td> <td>5.55</td> <td>1.67</td> <td><b>18.02</b></td> <td>-</td> <td>-</td></tr>
-					<tr><td>MMAudio-M-44.1kHz</td> <td>621M</td> <td>1.13</td> <td>4.74</td> <td>1.66</td> <td>17.41</td> <td>-</td> <td>-</td></tr>
-					<tr><td>MMAudio-L-44.1kHz</td> <td>1.03B</td> <td>0.97</td> <td><b>4.72</b></td> <td><b>1.65</b></td> <td>17.40</td> <td>16.12 *</td> <td>0.22 *</td></tr>
-					<tr><td>Ours-Base w/o text</td> <td>711M</td> <td>0.80</td> <td>8.66</td> <td>2.22</td> <td>12.08</td> <td>16.14</td> <td><b>0.25</b></td></tr>
-					<tr><td>Ours-Base w. text</td> <td>711M</td> <td>0.78</td> <td>6.28</td> <td>1.73</td> <td>14.02</td> <td>16.86</td> <td><b>0.25</b></td></tr>
-					<tr><td>Ours-Piano2h w. text</td> <td>789M</td> <td>0.83</td> <td>6.97</td> <td>1.74</td> <td>13.99</td> <td>16.49</td> <td>0.23</td></tr>
-					<tr><td>Ours-CL w. text</td> <td>712M</td> <td>0.75</td> <td>6.42</td> <td>1.70</td> <td>14.72</td> <td>17.09</td> <td>0.24</td></tr>
-					<tr><td>Ours-FactorCL w. text</td> <td>718M</td> <td><b>0.74</b></td> <td>5.69</td> <td>1.69</td> <td>14.63</td> <td><b>17.70</b></td> <td>0.24</td></tr>
-				</tbody>
-			</table>
-			
-			<br>
-			
-			Table 1: Objective results of VGGSound-Test regarding audio quality, semantic and temporal alignment. w. text denotes audio generation with text as a guiding condition, and w/o text denotes audio generation without text input, using only the video input. *: These are reproduced using their official checkpoints and inference codes, following the same evaluation protocol.
-			
-			<br>
-            <br>
-			
-			<table>
-				<thead>
-					<tr>
-						<th>Method</th> <th>SI-SDR↑</th> <th>Melody Similarity (MOS)↑</th> <th>Smoothness and Appeal (MOS)↑</th> <th>MIDI Precision/Recall/Acc/F1</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr><td>Audeo</td> <td>1.98 dB</td> <td>2.63 ± 0.10</td> <td>3.25 ± 0.09</td> <td rowspan="3">0.65/0.70/0.51/0.60</td></tr>
-					<tr><td>Ours-Piano2h w/o guid.</td> <td>-2.26 dB</td> <td>1.68 ± 0.11</td> <td>3.29 ± 0.11</td></tr>
-					<tr><td>Ours-Piano2h</td> <td><b>3.35 dB</b></td> <td><b>3.44 ± 0.12</b></td> <td><b>3.54 ± 0.11</b></td></tr>
-				</tbody>
-			</table>
-			
-			<br>
-			
-			Table 2: Objective and subjective evaluations on PianoYT-2h. Frame-level MIDI precision, recall, accuracy, and F1 scores are computed following Audeo.
-			
 			<br>
             <br>
 			
@@ -340,6 +243,103 @@
 					<source src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/videos/tests__piano_2h_cropped2_cuts__nwwHuxHMIpc.00000009.v2a.mp4">
 				</video>
 			</div>
+			
+            <br>
+            <br>
+			
+            <hr>
+			
+			<br>
+            <br>
+			
+			<div class="row" style="font-size:32px">
+                <div class="col strong">
+                    Method
+                </div>
+            </div>
+			
+			<br>
+            <br>
+            
+			<img src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/images/multi-stage.png" alt="overview" style="width:100%;">
+			
+			<br>
+			
+			Figure 1: Multi-stage training pipeline of our method.
+			
+			<br>
+            <br>
+			
+			<img src="https://acappemin.github.io/Video-to-Audio-and-Piano.github.io/assets/images/dataset_200.png" alt="dataset" style="width:100%;">
+			
+			<br>
+			
+			Figure 2: Five views of the Piano-10h dataset supporting step-by-step generation tasks.
+			
+			<br>
+            <br>
+			
+			<hr>
+			
+			<br>
+            <br>
+			
+			<div class="row" style="font-size:32px">
+                <div class="col strong">
+                    Results
+                </div>
+            </div>
+			
+			<br>
+            <br>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Method</th> <th>Params</th> <th>FAD↓</th> <th>FD↓</th> <th>KL↓</th> <th>IS↑</th> <th>CLIP↑</th> <th>AV↑</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>Diff-Foley *</td> <td>859M</td> <td>6.05</td> <td>23.38</td> <td>3.18</td> <td>10.95</td> <td>9.40</td> <td>0.21</td></tr>
+					<tr><td>FoleyCrafter w/o text *</td> <td>1.22B</td> <td>2.38</td> <td>26.70</td> <td>2.53</td> <td>9.66</td> <td>15.57</td> <td><b>0.25</b></td></tr>
+					<tr><td>FoleyCrafter w. text *</td> <td>1.22B</td> <td>2.59</td> <td>20.88</td> <td>2.28</td> <td>13.60</td> <td>14.80</td> <td>0.24</td></tr>
+					<tr><td>V2A-Mapper *</td> <td>229M</td> <td>0.82</td> <td>13.47</td> <td>2.67</td> <td>10.53</td> <td>15.33</td> <td>0.14</td></tr>
+					<tr><td>Frieren *</td> <td>159M</td> <td>1.36</td> <td>12.48</td> <td>2.75</td> <td>12.34</td> <td>11.57</td> <td>0.21</td></tr>
+					<tr><td>MMAudio-S-16kHz</td> <td>157M</td> <td>0.79</td> <td>5.22</td> <td><b>1.65</b></td> <td>14.44</td> <td>-</td> <td>-</td></tr>
+					<tr><td>MMAudio-S-44.1kHz</td> <td>157M</td> <td>1.66</td> <td>5.55</td> <td>1.67</td> <td><b>18.02</b></td> <td>-</td> <td>-</td></tr>
+					<tr><td>MMAudio-M-44.1kHz</td> <td>621M</td> <td>1.13</td> <td>4.74</td> <td>1.66</td> <td>17.41</td> <td>-</td> <td>-</td></tr>
+					<tr><td>MMAudio-L-44.1kHz</td> <td>1.03B</td> <td>0.97</td> <td><b>4.72</b></td> <td><b>1.65</b></td> <td>17.40</td> <td>16.12 *</td> <td>0.22 *</td></tr>
+					<tr><td>Ours-Base w/o text</td> <td>711M</td> <td>0.80</td> <td>8.66</td> <td>2.22</td> <td>12.08</td> <td>16.14</td> <td><b>0.25</b></td></tr>
+					<tr><td>Ours-Base w. text</td> <td>711M</td> <td>0.78</td> <td>6.28</td> <td>1.73</td> <td>14.02</td> <td>16.86</td> <td><b>0.25</b></td></tr>
+					<tr><td>Ours-Piano2h w. text</td> <td>789M</td> <td>0.83</td> <td>6.97</td> <td>1.74</td> <td>13.99</td> <td>16.49</td> <td>0.23</td></tr>
+					<tr><td>Ours-CL w. text</td> <td>712M</td> <td>0.75</td> <td>6.42</td> <td>1.70</td> <td>14.72</td> <td>17.09</td> <td>0.24</td></tr>
+					<tr><td>Ours-FactorCL w. text</td> <td>718M</td> <td><b>0.74</b></td> <td>5.69</td> <td>1.69</td> <td>14.63</td> <td><b>17.70</b></td> <td>0.24</td></tr>
+				</tbody>
+			</table>
+			
+			<br>
+			
+			Table 1: Objective results of VGGSound-Test regarding audio quality, semantic and temporal alignment. w. text denotes audio generation with text as a guiding condition, and w/o text denotes audio generation without text input, using only the video input. *: These are reproduced using their official checkpoints and inference codes, following the same evaluation protocol.
+			
+			<br>
+            <br>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Method</th> <th>SI-SDR↑</th> <th>Melody Similarity (MOS)↑</th> <th>Smoothness and Appeal (MOS)↑</th> <th>MIDI Precision/Recall/Acc/F1</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>Audeo</td> <td>1.98 dB</td> <td>2.63 ± 0.10</td> <td>3.25 ± 0.09</td> <td rowspan="3">0.65/0.70/0.51/0.60</td></tr>
+					<tr><td>Ours-Piano2h w/o guid.</td> <td>-2.26 dB</td> <td>1.68 ± 0.11</td> <td>3.29 ± 0.11</td></tr>
+					<tr><td>Ours-Piano2h</td> <td><b>3.35 dB</b></td> <td><b>3.44 ± 0.12</b></td> <td><b>3.54 ± 0.11</b></td></tr>
+				</tbody>
+			</table>
+			
+			<br>
+			
+			Table 2: Objective and subjective evaluations on PianoYT-2h. Frame-level MIDI precision, recall, accuracy, and F1 scores are computed following Audeo.
 			
             <br><br>
             <br><br>
