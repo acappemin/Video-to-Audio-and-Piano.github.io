@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row text-center" style="font-size:38px">
                 <div class="col strong">
-                    Enhance Generation Quality of Flow Matching V2A Model via Multi-Step <br>CoT-Like Guidance and Combined Preference Optimization
+                    Enhance Generation Quality of Flow Matching V2A Model via Multi-Step CoT-Like Guidance and Combined Preference Optimization
 					Towards Video to Piano Music Generation with Chain-of-Perform Support Benchmarks
                 </div>
             </div>
@@ -109,6 +109,40 @@
 			
 			<br>
             <br>
+			
+			
+			$$
+			\begin{table*}[t]
+\centering
+\resizebox{0.75\textwidth}{!}{%
+%\setlength{\tabcolsep}{1.4mm}{
+\begin{tabular}{lccccccc}
+\toprule
+Method & Params & FAD$\downarrow$ & FD$\downarrow$ & KL$\downarrow$ & IS$\uparrow$ & CLIP$\uparrow$ & AV$\uparrow$\\
+\midrule
+%SpecVQGAN& 5.60 & 33.04 & 8.82 & 5.13 & 6.63 & {\bfseries0.309}\\
+Diff-Foley~\cite{luo2023difffoley} * & 859M & 6.05 & 23.38 & 3.18  & 10.95 & 9.40  & 0.21\\
+FoleyCrafter w/o text~\cite{zhang2024foleycrafter} * & 1.22B & 2.38 & 26.70 & 2.53 & 9.66 & 15.57 & {\bfseries 0.25}\\
+FoleyCrafter w. text~\cite{zhang2024foleycrafter} * & 1.22B & 2.59 & 20.88 & 2.28 & 13.60 & 14.80 & 0.24\\
+V2A-Mapper~\cite{wang2024v2a} * & 229M & 0.82 & 13.47 & 2.67 & 10.53 & 15.33 & 0.14 \\
+Frieren~\cite{wang2024frieren} * & 159M & 1.36 & 12.48 & 2.75 & 12.34 & 11.57 & 0.21 \\
+MMAudio-S-16kHz~\cite{cheng2024taming} & 157M & 0.79 & 5.22 & {\bfseries 1.65} & 14.44 & - & - \\
+MMAudio-S-44.1kHz~\cite{cheng2024taming} & 157M & 1.66 & 5.55 & 1.67 & {\bfseries 18.02} & - & - \\
+MMAudio-M-44.1kHz~\cite{cheng2024taming} & 621M & 1.13 & 4.74 & 1.66 & 17.41 & - & - \\
+MMAudio-L-44.1kHz~\cite{cheng2024taming} & 1.03B & 0.97 & {\bfseries 4.72} & {\bfseries 1.65} & 17.40 & 16.12 * & 0.22 * \\
+\midrule
+Ours-Base w/o text & 711M & 0.80  &  8.66    & 2.22 & 12.08 & 16.14 & {\bfseries 0.25}\\
+Ours-Base w. text & 711M & 0.78 & 6.28 & 1.73 & 14.02 & 16.86 & {\bfseries 0.25}\\
+Ours-Piano2h w. text & 789M & 0.83 & 6.97 & 1.74 & 13.99 & 16.49 & 0.23 \\
+Ours-CL w. text & 712M & 0.75 & 6.42 & 1.70 & 14.72 & 17.09 & 0.24 \\
+Ours-FactorCL w. text & 718M & {\bfseries 0.74} & 5.69 & 1.69 & 14.63 & {\bfseries 17.70} & 0.24 \\
+\bottomrule
+\end{tabular}}
+\caption{Objective results of VGGSound-Test regarding audio quality, semantic and temporal alignment. w. text denotes audio generation with text as a guiding condition, and w/o text denotes audio generation without text input, using only the video input. *: These are reproduced using their official checkpoints and inference codes, following the same evaluation protocol.}
+\label{tab:vggsound}
+\end{table*}
+$$
+			
 			
 			<hr>
 			
