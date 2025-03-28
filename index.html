@@ -111,7 +111,6 @@
 			<br>
             <br>
 			
-			
 			<table>
 				<thead>
 					<tr>
@@ -140,7 +139,25 @@
 			
 			Table 1: Objective results of VGGSound-Test regarding audio quality, semantic and temporal alignment. w. text denotes audio generation with text as a guiding condition, and w/o text denotes audio generation without text input, using only the video input. *: These are reproduced using their official checkpoints and inference codes, following the same evaluation protocol.
 			
+			<br>
+            <br>
 			
+			<table>
+				<thead>
+					<tr>
+						<th>Method</th> <th>SI-SDR↑</th> <th>Melody Similarity (MOS)↑</th> <th>Smoothness and Appeal (MOS)↑</th> <th>MIDI Precision/Recall/Acc/F1</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>Audeo</td> <td>1.98 dB</td> <td>2.63 ± 0.10</td> <td>3.25 ± 0.09</td> <td rowspan="3">0.65/0.70/0.51/0.60</td></tr>
+					<tr><td>Ours-Piano2h w/o guid.</td> <td>-2.26 dB</td> <td>1.68 ± 0.11</td> <td>3.29 ± 0.11</td></tr>
+					<tr><td>Ours-Piano2h</td> <td><b>3.35 dB</b></td> <td><b>3.44 ± 0.12</b></td> <td><b>3.54 ± 0.11</b></td></tr>
+				</tbody>
+			</table>
+			
+			<br>
+			
+			Table 2: Objective and subjective evaluations on PianoYT-2h. Frame-level MIDI precision, recall, accuracy, and F1 scores are computed following Audeo.
 			
 			<br>
             <br>
