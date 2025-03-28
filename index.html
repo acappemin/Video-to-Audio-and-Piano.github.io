@@ -34,6 +34,7 @@
             <div class="row text-center" style="font-size:38px">
                 <div class="col strong">
                     Enhance Generation Quality of Flow Matching V2A Model via Multi-Step CoT-Like Guidance and Combined Preference Optimization
+					<br>
 					Towards Video to Piano Music Generation with Chain-of-Perform Support Benchmarks
                 </div>
             </div>
@@ -111,38 +112,38 @@
             <br>
 			
 			
-			$$
-			\begin{table*}[t]
-\centering
-\resizebox{0.75\textwidth}{!}{%
-%\setlength{\tabcolsep}{1.4mm}{
-\begin{tabular}{lccccccc}
-\toprule
-Method & Params & FAD$\downarrow$ & FD$\downarrow$ & KL$\downarrow$ & IS$\uparrow$ & CLIP$\uparrow$ & AV$\uparrow$\\
-\midrule
-%SpecVQGAN& 5.60 & 33.04 & 8.82 & 5.13 & 6.63 & {\bfseries0.309}\\
-Diff-Foley~\cite{luo2023difffoley} * & 859M & 6.05 & 23.38 & 3.18  & 10.95 & 9.40  & 0.21\\
-FoleyCrafter w/o text~\cite{zhang2024foleycrafter} * & 1.22B & 2.38 & 26.70 & 2.53 & 9.66 & 15.57 & {\bfseries 0.25}\\
-FoleyCrafter w. text~\cite{zhang2024foleycrafter} * & 1.22B & 2.59 & 20.88 & 2.28 & 13.60 & 14.80 & 0.24\\
-V2A-Mapper~\cite{wang2024v2a} * & 229M & 0.82 & 13.47 & 2.67 & 10.53 & 15.33 & 0.14 \\
-Frieren~\cite{wang2024frieren} * & 159M & 1.36 & 12.48 & 2.75 & 12.34 & 11.57 & 0.21 \\
-MMAudio-S-16kHz~\cite{cheng2024taming} & 157M & 0.79 & 5.22 & {\bfseries 1.65} & 14.44 & - & - \\
-MMAudio-S-44.1kHz~\cite{cheng2024taming} & 157M & 1.66 & 5.55 & 1.67 & {\bfseries 18.02} & - & - \\
-MMAudio-M-44.1kHz~\cite{cheng2024taming} & 621M & 1.13 & 4.74 & 1.66 & 17.41 & - & - \\
-MMAudio-L-44.1kHz~\cite{cheng2024taming} & 1.03B & 0.97 & {\bfseries 4.72} & {\bfseries 1.65} & 17.40 & 16.12 * & 0.22 * \\
-\midrule
-Ours-Base w/o text & 711M & 0.80  &  8.66    & 2.22 & 12.08 & 16.14 & {\bfseries 0.25}\\
-Ours-Base w. text & 711M & 0.78 & 6.28 & 1.73 & 14.02 & 16.86 & {\bfseries 0.25}\\
-Ours-Piano2h w. text & 789M & 0.83 & 6.97 & 1.74 & 13.99 & 16.49 & 0.23 \\
-Ours-CL w. text & 712M & 0.75 & 6.42 & 1.70 & 14.72 & 17.09 & 0.24 \\
-Ours-FactorCL w. text & 718M & {\bfseries 0.74} & 5.69 & 1.69 & 14.63 & {\bfseries 17.70} & 0.24 \\
-\bottomrule
-\end{tabular}}
-\caption{Objective results of VGGSound-Test regarding audio quality, semantic and temporal alignment. w. text denotes audio generation with text as a guiding condition, and w/o text denotes audio generation without text input, using only the video input. *: These are reproduced using their official checkpoints and inference codes, following the same evaluation protocol.}
-\label{tab:vggsound}
-\end{table*}
-$$
+			<table>
+				<thead>
+					<tr>
+						<th>Method</th> <th>Params</th> <th>FAD↓</th> <th>FD↓</th> <th>KL↓</th> <th>IS↑</th> <th>CLIP↑</th> <th>AV↑</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>Diff-Foley</td> <td>859M</td> <td>6.05</td> <td>23.38</td> <td>3.18</td> <td>10.95</td> <td>9.40</td> <td>0.21</td></tr>
+					<tr><td>FoleyCrafter w/o text</td> <td>1.22B</td> <td>2.38</td> <td>26.70</td> <td>2.53</td> <td>9.66</td> <td>15.57</td> <td><b>0.25</b></td></tr>
+					<tr><td>FoleyCrafter w. text</td> <td>1.22B</td> <td>2.59</td> <td>20.88</td> <td>2.28</td> <td>13.60</td> <td>14.80</td> <td>0.24</td></tr>
+					<tr><td>V2A-Mapper</td> <td>229M</td> <td>0.82</td> <td>13.47</td> <td>2.67</td> <td>10.53</td> <td>15.33</td> <td>0.14</td></tr>
+					<tr><td>Frieren</td> <td>159M</td> <td>1.36</td> <td>12.48</td> <td>2.75</td> <td>12.34</td> <td>11.57</td> <td>0.21</td></tr>
+					<tr><td>MMAudio-S-16kHz</td> <td>157M</td> <td>0.79</td> <td>5.22</td> <td><b>1.65</b></td> <td>14.44</td> <td>-</td> <td>-</td></tr>
+					<tr><td>MMAudio-S-44.1kHz</td> <td>157M</td> <td>1.66</td> <td>5.55</td> <td>1.67</td> <td><b>18.02</b></td> <td>-</td> <td>-</td></tr>
+					<tr><td>MMAudio-M-44.1kHz</td> <td>621M</td> <td>1.13</td> <td>4.74</td> <td>1.66</td> <td>17.41</td> <td>-</td> <td>-</td></tr>
+					<tr><td>MMAudio-L-44.1kHz</td> <td>1.03B</td> <td>0.97</td> <td><b>4.72</b></td> <td><b>1.65</b></td> <td>17.40</td> <td>16.12 *</td> <td>0.22 *</td></tr>
+					<tr><td>Ours-Base w/o text</td> <td>711M</td> <td>0.80</td> <td>8.66</td> <td>2.22</td> <td>12.08</td> <td>16.14</td> <td><b>0.25</b></td></tr>
+					<tr><td>Ours-Base w. text</td> <td>711M</td> <td>0.78</td> <td>6.28</td> <td>1.73</td> <td>14.02</td> <td>16.86</td> <td><b>0.25</b></td></tr>
+					<tr><td>Ours-Piano2h w. text</td> <td>789M</td> <td>0.83</td> <td>6.97</td> <td>1.74</td> <td>13.99</td> <td>16.49</td> <td>0.23</td></tr>
+					<tr><td>Ours-CL w. text</td> <td>712M</td> <td>0.75</td> <td>6.42</td> <td>1.70</td> <td>14.72</td> <td>17.09</td> <td>0.24</td></tr>
+					<tr><td>Ours-FactorCL w. text</td> <td>718M</td> <td><b>0.74</b></td> <td>5.69</td> <td>1.69</td> <td>14.63</td> <td><b>17.70</b></td> <td>0.24</td></tr>
+				</tbody>
+			</table>
 			
+			<br>
+			
+			Table 1: Objective results of VGGSound-Test regarding audio quality, semantic and temporal alignment. w. text denotes audio generation with text as a guiding condition, and w/o text denotes audio generation without text input, using only the video input. *: These are reproduced using their official checkpoints and inference codes, following the same evaluation protocol.
+			
+			
+			
+			<br>
+            <br>
 			
 			<hr>
 			
